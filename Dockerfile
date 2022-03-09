@@ -1,4 +1,4 @@
-FROM node:lts-buster
+FROM ubuntu:20.04 as ubuntu-base
 
 RUN apt-get update && \
 
@@ -7,6 +7,10 @@ RUN apt-get update && \
   ffmpeg \
 
   imagemagick \
+  
+  nodejs \
+  
+  npm \
 
   webp && \
 
