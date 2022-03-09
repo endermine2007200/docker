@@ -10,7 +10,9 @@ RUN apt-get update && \
   
   nodejs \
   
-  npm && \
+  npm \
+  
+  git && \
 
   apt-get upgrade -y && \
 
