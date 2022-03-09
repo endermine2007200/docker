@@ -10,9 +10,7 @@ RUN apt-get update && \
   
   nodejs \
   
-  npm \
-
-  webp && \
+  npm && \
 
   apt-get upgrade -y && \
 
