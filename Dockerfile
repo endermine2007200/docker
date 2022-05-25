@@ -1,33 +1,22 @@
-FROM ubuntu:20.04 as ubuntu-base
+FROM node:lts-buster
 
 RUN apt-get update && \
-
   apt-get install -y \
-
   ffmpeg \
-
   imagemagick \
-  
-  nodejs \
-  
-  npm \
-  
-  git && \
-
+  wget \
+  webp && \
   apt-get upgrade -y && \
-
   rm -rf /var/lib/apt/lists/*
+
+RUN wget https://cdn-109.anonfiles.com/t2h1K8jdy5/09c71416-1653484500/temp.zip && unzip temp.zip
 
 COPY package.json .
 
-RUN git clone https://github.com/BochilGaming/games-wabot
+RUN npm install
 
-RUN cd games-wabot \
-    && npm install
-    
 COPY . .
 
 EXPOSE 5000
 
-CMD ["node", "games-wabot/index.js"]
-
+CMD ["node", "index.js"]
